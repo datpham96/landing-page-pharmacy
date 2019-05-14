@@ -54,7 +54,7 @@
                             <td>@{{ val.name }}</td>
                             <!-- <td>@{{ val.link }}</td> -->
                             <td>
-                                <img style="width: 70px" ng-src="{{url('')}}/@{{val.avatar}}" alt="@{{val.name}}">
+                                <img style="width: 70px" ng-src="@{{ actions.loadImage(val.avatar) }}" alt="@{{val.name}}">
                             </td>
                             <td>
                                 <i ng-click="actions.modalUpdate(val)" class="fa fa-pencil-square-o btn btn-info btn-icon btn-circle" aria-hidden="true"></i>

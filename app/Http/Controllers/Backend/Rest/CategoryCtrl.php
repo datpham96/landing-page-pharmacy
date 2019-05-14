@@ -16,7 +16,7 @@ class CategoryCtrl extends Controller
         $this->categoryModel = $categoryModel;
     }
 
-    public function list(Request $request){
+    public function listCategory(Request $request){
         
         //lay danh sach
         $perPage = $request->input('perPage', 10);

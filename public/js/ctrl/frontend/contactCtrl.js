@@ -28,6 +28,16 @@ ngApp.controller('contactCtrl', function ($myNotify,$scope, $myLoader, $myBootbo
                     $scope.errors = err;
                     $myLoader.hide();
                 });
+        },
+        saveHandle: function (status){   
+            console.log(status);
+            if(status){
+                $myNotifyClient.success('Đặt hàng thành công!');
+                 $("#showModal").modal("hide");
+            }else{
+                $myNotifyClient.err('Đặt hàng thất bại');
+                $("#showModal").modal("hide");
+            }
         }
     };
 });

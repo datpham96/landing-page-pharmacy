@@ -12,7 +12,6 @@ $(function(){
 	//pharmacy
 	var h = $(window).height();
 	var w = $(window).width();
-	console.log(h);
 	$(".p-banner img").height(h);
 	$(".p-banner img").width(w);
 

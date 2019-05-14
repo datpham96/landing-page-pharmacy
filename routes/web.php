@@ -27,6 +27,25 @@ Route::group(['prefix' => '/admin', 'middleware'=> ['web', 'auth']], function ()
 	//link
 	Route::get("/links", "Backend\Links\LinksCtrl@links")->name('links');
 
+	//post
+	Route::get("/posts", "Backend\Posts\PostsCtrl@main")->name('posts');
+	Route::get("/mainPosts", "Backend\Posts\PostsCtrl@posts")->name('mainPosts');
+	Route::get("/postDetail", "Backend\Posts\PostsCtrl@postDetail")->name('postDetail');
+
+	//baner
+	Route::get("/banner", "Backend\Banner\BannerCtrl@banner")->name('banner');
+
+	//layer
+	Route::get("/layer/one", "Backend\Layer\LayerCtrl@layerOne")->name('layerOne');
+	Route::get("/layer/two", "Backend\Layer\LayerCtrl@layerTwo")->name('layerTwo');
+	Route::get("/layer/three", "Backend\Layer\LayerCtrl@layerThree")->name('layerThree');
+	Route::get("/layer/four", "Backend\Layer\LayerCtrl@layerFour")->name('layerFour');
+	Route::get("/layer/five", "Backend\Layer\LayerCtrl@layerFive")->name('layerFive');
+	Route::get("/layer/six", "Backend\Layer\LayerCtrl@layerSix")->name('layerSix');
+
+	//footer
+	Route::get("/footer", "Backend\Footer\FooterCtrl@footer")->name('footer');
+
 });
 
 //Rest backend
@@ -37,14 +56,33 @@ Route::group(['prefix' => 'backend/rest', 'middleware'=> 'auth'], function () {
 	Route::put('/userInfo/password', 'Backend\Rest\UserCtrl@updatePasswordSelf');
 
 	//links
-	Route::get('/link', 'Backend\Rest\LinkCtrl@list');
+	Route::get('/link', 'Backend\Rest\LinkCtrl@listLink');
 	Route::post('/link', 'Backend\Rest\LinkCtrl@insert');
 	Route::post('/link/{id}', 'Backend\Rest\LinkCtrl@update');
 	Route::delete('/link/{id}', 'Backend\Rest\LinkCtrl@delete');
 
 	//category
-	Route::get('/category', 'Backend\Rest\CategoryCtrl@list');
+	Route::get('/category', 'Backend\Rest\CategoryCtrl@listCategory');
 	Route::delete('/category/{id}', 'Backend\Rest\CategoryCtrl@delete');
+
+	//post
+	Route::get('/post', 'Backend\Rest\PostCtrl@list');
+	Route::get('/post/{id}', 'Backend\Rest\PostCtrl@info');
+	Route::post('/post', 'Backend\Rest\PostCtrl@insert');
+	Route::post('/post/{id}', 'Backend\Rest\PostCtrl@update');
+	Route::delete('/post/{id}', 'Backend\Rest\PostCtrl@delete');
+
+	//banner
+	Route::get('/banner', 'Backend\Rest\BannerCtrl@info');
+	Route::post('/banner', 'Backend\Rest\BannerCtrl@update');
+
+	//footer
+	Route::get('/footer', 'Backend\Rest\FooterCtrl@info');
+	Route::post('/footer', 'Backend\Rest\FooterCtrl@update');
+
+	//layer
+	Route::get('/layer', 'Backend\Rest\LayerCtrl@info');
+	Route::post('/layer', 'Backend\Rest\LayerCtrl@update');
 });
 
 //Rest frontend

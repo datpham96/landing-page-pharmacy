@@ -53,10 +53,57 @@
                                 <!-- <i class="fa fa-user"></i> -->
                                 <i class="ti-image"></i>
                                 <span class="menu-title">
-                                    <b>Ảnh</b>
+                                    <b>Ảnh phản hồi</b>
                                 </span>
                             </a>
-                        </li>                        
+                        </li> 
+                        <li class="{{ request()->is('admin/banner') ? 'active-link' : '' }}">
+                            <a href="{{url('')}}/admin/banner">
+                                <!-- <i class="fa fa-user"></i> -->
+                                <i class="demo-pli-receipt-4"></i>
+                                <span class="menu-title">
+                                    <b>Banner</b>
+                                </span>
+                            </a>
+                        </li> 
+                        <li class="{{ request()->is('admin/layer/*') ? 'active-link' : '' }}">
+                            <a href="">
+                                <i class="demo-pli-split-vertical-2"></i>
+                                <span class="menu-title">Layer</span>
+                                <i class="arrow"></i>
+                            </a>
+
+                            <!--Submenu-->
+                            <ul class="collapse" aria-expanded="false" style="height: 0px;">
+                                <li class="{{ request()->is('admin/layer/one') ? 'active-link' : '' }}">
+                                    <a href="{{ url('') }}/admin/layer/one?type=layerOne">Layer 1</a>
+                                </li>
+                                <li class="{{ request()->is('admin/layer/two') ? 'active-link' : '' }}">
+                                    <a href="{{ url('') }}/admin/layer/two?type=layerTwo">Layer 2</a>
+                                </li>
+                                <li class="{{ request()->is('admin/layer/three') ? 'active-link' : '' }}">
+                                    <a href="{{ url('') }}/admin/layer/three?type=layerThree">Layer 3</a>
+                                </li>
+                                <li class="{{ request()->is('admin/layer/four') ? 'active-link' : '' }}">
+                                    <a href="{{ url('') }}/admin/layer/four?type=layerFour">Layer 4</a>
+                                </li>
+                                <li class="{{ request()->is('admin/layer/five') ? 'active-link' : '' }}">
+                                    <a href="{{ url('') }}/admin/layer/five?type=layerFive">Layer 5</a>
+                                </li>
+                                <li class="{{ request()->is('admin/layer/six') ? 'active-link' : '' }}">
+                                    <a href="{{ url('') }}/admin/layer/six?type=layerSix">Layer 6</a>
+                                </li>
+                            </ul>
+                        </li>  
+                        <li class="{{ request()->is('admin/footer') ? 'active-link' : '' }}">
+                            <a href="{{url('')}}/admin/footer">
+                                <!-- <i class="fa fa-user"></i> -->
+                                <i class="demo-pli-boot-2"></i>
+                                <span class="menu-title">
+                                    <b>Footer</b>
+                                </span>
+                            </a>
+                        </li>                     
                     </ul>
                 </div>           
             </div>

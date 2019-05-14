@@ -17,6 +17,7 @@
 <script src="{{ url('') }}/js/directives/myCkeditor.js"></script>
 <script src="{{ url('') }}/js/directives/myBtnImage.js"></script>
 <script src="{{ url('') }}/js/directives/myCkeditor.js"></script>
+<script src="{{ url('') }}/js/directives/myCkeditorOne.js"></script>
 
 
 <!--default factory-->
@@ -29,6 +30,7 @@
 <script src="{{ url('') }}/js/factory/myFile.js"></script>
 <script src="{{ url('') }}/js/factory/myFile.js"></script>
 <script src="{{ url('') }}/js/factory/apply.js"></script>
+<script src="{{ url('') }}/js/factory/myFunc.js"></script>
 
 <!--default ctrl-->
 <!-- <script src="{{ url('') }}/js/ctrl/headerCtrl.js"></script> -->

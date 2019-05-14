@@ -4,7 +4,7 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="{{url('/')}}/images/grt-logo.png" sizes="16x16">
+    <link rel="icon" href="{{url('/')}}/images/phamarcy-logo.png" sizes="16x16">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title >Đặng nhập</title>

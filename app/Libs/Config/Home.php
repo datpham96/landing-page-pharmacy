@@ -3,59 +3,57 @@
 namespace App\Libs\Config;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use App\Models\BannerModel;
+use App\Models\CategoryModel;
+use App\Models\FooterModel;
+use App\Models\LayerModel;
+use App\Models\LinkModel;
+use Request;
 
 class Home {
 	
+	private $bannerModel;
+	private $categoryModel;
+	private $layerModel;
+	private $linkModel;
+	private $footerModel;
+
 	public function __construct(){
-    	
+    	$this->bannerModel = new BannerModel();
+    	$this->categoryModel = new CategoryModel();
+    	$this->layerModel = new LayerModel();
+    	$this->linkModel = new LinkModel();
+    	$this->footerModel = new FooterModel();
     }
 
-	// public function getProduct(){
-	// 	$getProduct = $this->productModel->orderBy('created_at', 'desc')->limit(6)->get();
+	public function getBanner(){
+		$getBanner = $this->bannerModel->filterId(1)->buildCond()->first();
 
-	// 	return $getProduct;
-	// }
+		return $this->getUrlImage($getBanner->avatar);
+	}
 
-	// public function getProductByCate($id){
-	// 	$getData = $this->productModel->filterCateId($id)->buildCond()->orderBy('created_at', 'desc')->limit(3)->get();
-	// 	return $getData;
-	// }
+	public function getLayer($type){
+		$getLayer = $this->layerModel->filterType($type)
+		->buildCond()->first();
 
+		return $getLayer;
+	}
 
-	// public function getCategory(){
-	// 	$getCategory = $this->categoryModel->get();
+	public function getFooter(){
+		$getFooter = $this->footerModel->filterId(1)
+		->buildCond()->first();
 
-	// 	return $getCategory;
-	// }
+		return $getFooter;
+	}
 
-	// public function getCategoryInfo($id){
-	// 	$getInfo = $this->categoryModel->filterId($id)->buildCond()->first();
+	public function getFeedBack(){
+		$getLink = $this->linkModel->get();
 
-	// 	return $getInfo;
-	// }
+		return $getLink;
+	}
 
-	// public function getLink(){
-	// 	$getLink = $this->linkModel->get();
+	public function getUrlImage($avatar){
 
-	// 	return $getLink;
-	// }
-
-	// public function getSupport(){
-	// 	$getSupport = $this->supportModel->get();
-
-	// 	return $getSupport;
-	// }
-
-	// public function strLimit($content,$limit){
-	// 	return str_limit($content,$limit);
-	// }
-
-	// public function formatDate($date){
-	// 	return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d-m-Y');
-	// }
-
-	// public function strWord($content,$num){
-	// 	return Str::words($content, $words = $num, $end = '...');
-	// }
-
+		return url('') . "/file/avatar?data=" . $avatar;
+	}
 }

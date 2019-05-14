@@ -101,6 +101,13 @@ ngApp.factory('$myFunc', ['$rootScope', function ($rootScope) {
                 
                 arrWord = arrWord.slice(0, length);
                 return ellipses? arrWord.join(" ") + '...': arrWord.join(" ");
+            },
+            getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                    vars[key] = value;
+                });
+                return vars;
             }
         };
 

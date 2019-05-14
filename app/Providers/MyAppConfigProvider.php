@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class MyAppConfigProvider extends ServiceProvider
 {
-    protected $defer = true;
     /**
      * Bootstrap the application services.
      *
@@ -14,7 +13,9 @@ class MyAppConfigProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->singleton('Home', function ($app) {
+            return new \App\Libs\Config\Home();
+        });
     }
 
     /**
@@ -24,12 +25,6 @@ class MyAppConfigProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Home', function ($app) {
-            return new \App\Libs\Config\Home();
-        });
-    }
-
-    public function provides() {
         return [
             'Home'
         ];

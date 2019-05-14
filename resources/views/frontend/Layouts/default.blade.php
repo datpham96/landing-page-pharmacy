@@ -15,11 +15,17 @@
             }
         });
         var SiteUrl = '{{url("/")}}';
+
     </script>
+    <script type="text/javascript" src="{{ url('') }}/js/directives/frontend/modal/contactModal.js"></script>
+    <script type="text/javascript" src="{{ url('') }}/js/factory/service/frontend/contactService.js"></script>
+
+    <!-- include ctrl -->
+    <script type="text/javascript" src="{{ url('') }}/js/ctrl/frontend/contactCtrl.js"></script>
 
 </head>
-<body ng-app="ngApp" style="background-color: #fff" ng-cloak>
-                  
+<body ng-app="ngApp" style="background-color: #fff" ng-cloak ng-controller="contactCtrl">
+
     @includeif('frontend.Layouts.partial._header')               
     @includeif('frontend.Layouts.partial._banner')               
 
@@ -34,6 +40,14 @@
     @includeif('frontend.Layouts.partial._modalLoader')
     @includeif('frontend.Layouts.partial._js')
     @includeif('frontend.Layouts.partial._footer')
+    <contact-modal modal-dom="modalDom" form-data ret-func="actions.saveHandle(status)"></contact-modal>
+    <script>
+        $(function(){
+            setTimeout(function(){
+                $("#showModal").modal("show");
+            }, 5000);            
+        })
+    </script>
 </body>
 
 </html>

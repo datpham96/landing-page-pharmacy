@@ -2,6 +2,7 @@
 <div style="border-top: 1px dashed #dcdcdc">
 	
 </div>
+<div class="row">
 <div class="us-horizone">
 	<h1 class="u-h1">CHIA SẺ CỦA KHÁCH HÀNG?</h1>
 </div>
@@ -27,14 +28,11 @@
     <!-- Slides Container -->
     <div class="data-u" data-u="slides" style="position: absolute; left: 0px; top: 0px; width: 400px; height: 500px;
     overflow: hidden;">
-    <div><img data-u="image" src="{{ url('') }}/images/share/1.png" /></div>
-    <div><img data-u="image" src="{{ url('') }}/images/share/2.jpg" /></div>
-    <div><img data-u="image" src="{{ url('') }}/images/share/3.png" /></div>
-    <div><img data-u="image" src="{{ url('') }}/images/share/4.jpg" /></div>
-    <div><img data-u="image" src="{{ url('') }}/images/share/5.jpg" /></div>
-    <div><img data-u="image" src="{{ url('') }}/images/share/6.png" /></div>
-    <div><img data-u="image" src="{{ url('') }}/images/share/7.png" /></div>
-    <div><img data-u="image" src="{{ url('') }}/images/share/8.jpg" /></div>
+    @if( app('Home')->getFeedBack())
+        @foreach(app('Home')->getFeedBack() as $val)
+        <div><img data-u="image" alt="{{ $val->name }}" src="{{ app('Home')->getUrlImage($val->avatar) }}" /></div>
+        @endforeach
+    @endif
 </div>
 
 <style>
@@ -55,4 +53,5 @@
 	</svg>
 </div>
 <!--#endregion Arrow Navigator Skin End -->
+</div>
 </div>

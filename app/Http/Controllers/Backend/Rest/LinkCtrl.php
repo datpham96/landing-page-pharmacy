@@ -16,7 +16,7 @@ class LinkCtrl extends Controller
         $this->linkModel = $linkModel;
     }
 
-    public function list(Request $request){
+    public function listLink(Request $request){
         //validate
         $validate = Validator::make($request->all(), [
             'page' => 'required|numeric',
@@ -54,13 +54,20 @@ class LinkCtrl extends Controller
 
         $name = $request->input('name','');
         $link = $request->input('link','');
-        $avatar = $request->input('avatar','');
+        //Request User
+        $avatar_name = '';
+        if ($request->hasFile('avatar')) {
+
+            $avatar_name = $request->avatar->store('public/links');
+        }else{
+            $avatar_name = '';
+        }
 
         //thuc hien insert
         $linkId = $this->linkModel->insertGetId([
             "name" => $name,
             "link" => $link,
-            "avatar" => $avatar, 
+            "avatar" => $avatar_name, 
             "created_at" => Date('Y-m-d H:i:s'),
             "updated_at" => Date('Y-m-d H:i:s')
         ]);
@@ -91,12 +98,17 @@ class LinkCtrl extends Controller
 
         $name = $request->input('name','');
         $link = $request->input('link','');
-        $avatar = $request->input('avatar','');
+        if ($request->hasFile('avatar')) {
+
+            $avatar_name = $request->avatar->store('public/links');
+        }else{
+            $avatar_name = $userInfo->avatar;
+        }
         
         //thuc hien update
         $linkInfo->name = $name;
         $linkInfo->link = $link;
-        $linkInfo->avatar = $avatar;
+        $linkInfo->avatar = $avatar_name;
         $linkInfo->updated_at = Date('Y-m-d H:i:s');
         $linkInfo->save();
 

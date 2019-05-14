@@ -1,4 +1,4 @@
-ngApp.directive('linkModal', function ($apply, $myLoader, $linkService, $myAvatar) {
+ngApp.directive('linkModal', function ($apply, $myLoader, $linkService, $myAvatar, $myFile) {
     var templateUrl = SiteUrl + "/modal/linkModal";
     var restrict = 'E';
     var scope = {
@@ -24,9 +24,17 @@ ngApp.directive('linkModal', function ($apply, $myLoader, $linkService, $myAvata
                     $myLoader.show();
                     var name = scope.getData.name;
                     var email = scope.getData.link;
-                    var avatar = scope.getData.avatar || "/images/image-default.png";
+                    if ($('input[name*=avatar]')[0].files[0] == undefined)
+                    {
+                        scope.data.checkValidate = false;
+                    }else {
+                        scope.getData.avatar = $('input[name*=avatar]')[0].files[0];
+                    }
+                    if(scope.getData.avatar == undefined){
+                        scope.getData.avatar = $myAvatar.imageDefault();
+                    }
                     var id = scope.modalData.id || 0;
-                    var params = $linkService.data.update(name,email,avatar);
+                    var params = $linkService.data.update(name,email,scope.getData.avatar);
                     if(id > 0){                        
                         $linkService.action.update(params, id).then(function(resp){
                             scope.retFunc({ data: true , id: id});
@@ -43,12 +51,18 @@ ngApp.directive('linkModal', function ($apply, $myLoader, $linkService, $myAvata
                         }).catch(function(err){
                             scope.retFunc({ data: false });
                             scope.errors = err.data;
-                            console.log(scope.errors);
                             $myLoader.hide();
                         });
                     }
                 }               
-            }
+            },
+            loadImage: function (params) {          
+                if(params){
+                    return $myFile.avatar(params);
+                }else{
+                    return SiteUrl + '/images/new-user-image-default.jpg';
+                }
+            },
         };
 
         scope.$watch('modalData', function (newVal, oldVal) {
@@ -59,9 +73,9 @@ ngApp.directive('linkModal', function ($apply, $myLoader, $linkService, $myAvata
                 if(id > 0){
                     scope.title = "Sửa ảnh";
                     scope.getData = angular.copy(newVal);
-                    $(scope.domAvatar).attr('src',$myAvatar.image(newVal.avatar));
+                    $("#blah").attr('src',$myAvatar.image(newVal.avatar));
                 }else{
-                    $(scope.domAvatar).attr('src',$myAvatar.imageDefault());
+                    $("#blah").attr('src',$myAvatar.imageDefault());
                     scope.title = "Thêm ảnh";
                     scope.getData = {};
                 }

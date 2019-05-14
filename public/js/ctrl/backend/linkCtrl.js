@@ -1,4 +1,4 @@
-ngApp.controller('linkCtrl', function ($scope, $myLoader, $myNotify, $linkService, $myBootbox){   
+ngApp.controller('linkCtrl', function ($scope, $myLoader, $myNotify, $linkService, $myBootbox, $myFile){   
 	$scope.domData;
 	$scope.formData;
 	
@@ -76,6 +76,13 @@ ngApp.controller('linkCtrl', function ($scope, $myLoader, $myNotify, $linkServic
                     });
                 }
             })
+        },
+        loadImage: function (params) {          
+            if(params){
+                return $myFile.avatar(params);
+            }else{
+                return SiteUrl + '/images/new-user-image-default.jpg';
+            }
         }
         
     }

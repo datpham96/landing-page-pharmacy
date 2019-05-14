@@ -44,7 +44,7 @@
                             <th>STT</th>
                             <th>Họ tên</th>
                             <th>số điện thoại</th>
-                            <th>địa chỉ</th>
+                            <th>Tình trạng da</th>
                             <th>Hành động</th>
                         </tr>
                     </thead>

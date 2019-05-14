@@ -1,20 +1,20 @@
 <div class="cleafix"></div>
+@if(app('Home')->getLayer('layerFive'))
 <div class="us-horizone">
-	<h1 class="u-h1">BỘ BA ĐẶC TRỊ NÁM CÓ TÁC DỤNG NHƯ THẾ NÀO?</h1>
+	<h1 class="u-h1">{!! app('Home')->getLayer('layerFive')->titleMax !!}</h1>
 </div>
-<div class="tr-img">
+<!-- <div class="tr-img">
 	<img src="{{ url('') }}/images/lieu-trinh-1.png" alt="" class="img-responsive">
-</div>
+</div> -->
 <div class="wrap-list-tr" style="display: none;">
 	<div class="container">
 		<div class="tr-wrap-img">
-			<img src="{{ url('') }}/images/giai-doan-1.PNG" class="img-thumbnail" alt="Cinque Terre" style="height: 120px; width: 120px; float: left">
+			<img src="{{ app('Home')->getUrlImage(app('Home')->getLayer('layerFive')->avatarOne) }}" class="img-thumbnail" alt="Cinque Terre" style="height: 120px; width: 120px; float: left">
 			<div class="tr-title">
-				<p>Giai đoạn 1(Ngày - 10)</p>
-				<p>Mền chân nám - sáng làn da</p>
+				{!! app('Home')->getLayer('layerFive')->titleContentOne !!}
 			</div>
 			<div class="tr-content">
-				<p>Làm mềm chân nám - tàn nhang, diệt khuẩn và kích hoạt mạch máu dưới da khiến da hồng hào, mềm mịn</p>
+				{!! app('Home')->getLayer('layerFive')->contentOne !!}
 			</div>
 		</div>
 	</div>
@@ -22,13 +22,12 @@
 	</div>
 	<div class="container">
 		<div class="tr-wrap-img">
-			<img src="{{ url('') }}/images/phuc-hoi-da.png" class="img-thumbnail" alt="Cinque Terre" style="height: 120px; width: 120px; float: left">
+			<img src="{{ app('Home')->getUrlImage(app('Home')->getLayer('layerFive')->avatarTwo) }}" class="img-thumbnail" alt="Cinque Terre" style="height: 120px; width: 120px; float: left">
 			<div class="tr-title">
-				<p>Giai đoạn 2(Ngày 10 - 20)</p>
-				<p>Phục hồi, tái tạo da	</p>
+				{!! app('Home')->getLayer('layerFive')->titleContentTwo !!}
 			</div>
 			<div class="tr-content">
-				<p>Phục hồi sáng da sẽ tăng cường dưỡng chất, tái tạo da.giúp quá trình này diễn ra nhanh hơn các sản phẩm khác, giúp làn da săn chắc, tái tạo tế bào da giúp làm tươi mới, trẻ trung làn da.</p>
+				{!! app('Home')->getLayer('layerFive')->contentTwo !!}
 			</div>
 		</div>
 	</div>
@@ -36,13 +35,12 @@
 	</div>
 	<div class="container">
 		<div class="tr-wrap-img">
-			<img src="{{ url('') }}/images/hut-chan-nam.png" class="img-thumbnail" alt="Cinque Terre" style="height: 120px; width: 120px; float: left">
+			<img src="{{ app('Home')->getUrlImage(app('Home')->getLayer('layerFive')->avatarThree) }}" class="img-thumbnail" alt="Cinque Terre" style="height: 120px; width: 120px; float: left">
 			<div class="tr-title">
-				<p>Giai đoạn 3(Ngày 20 - 30)</p>
-				<p>Hút chân nám</p>
+				{!! app('Home')->getLayer('layerFive')->titleContentThree !!}
 			</div>
 			<div class="tr-content">
-				<p>Các hoạt chất dược liệu thẩm thấu sâu vào biểu bì da, tiêu giảm tụ huyết, ức chế chân nám ở hạ bì da, đẩy ra ngoài da. Đây cũng chính là lúc mà nám được chữa từ sâu bên trong, các vết nám mờ dần và hết hẳn sau liệu trình phù hợp.</p>
+				{!! app('Home')->getLayer('layerFive')->contentThree !!}
 			</div>
 		</div>
 	</div>
@@ -50,16 +48,60 @@
 	</div>
 	<div class="container">
 		<div class="tr-wrap-img">
-			<img src="{{ url('') }}/images/sau-lo-trinh.jpg" class="img-thumbnail" alt="Cinque Terre" style="height: 120px; width: 120px; float: left">
+			<img src="{{ app('Home')->getUrlImage(app('Home')->getLayer('layerFive')->avatarFour) }}" class="img-thumbnail" alt="Cinque Terre" style="height: 120px; width: 120px; float: left">
 			<div class="tr-title">
-				<p>Giai đoạn 4</p>
-				<p>Sau liệu trình điều trị	</p>
+				{!! app('Home')->getLayer('layerFive')->titleContentFour !!}
 			</div>
 			<div class="tr-content">
-				<p>Sau liệu trình điều trị (tùy cơ địa bệnh nhân) thì hầu hết cũng sẽ khỏi bệnh. Tuy nhiên như chúng tôi đã đề cập ở trên, bệnh nám, tàn nhang chủ yếu là do yếu tố cơ địa bên trong, vì vậy để tăng hiệu quả điều trị bệnh nhân vẫn nên sử dụng sản phẩm cân bằng nội tiết tố để loại bỏ gốc bệnh, tránh tái phát trong tương lai.</p>
+				{!! app('Home')->getLayer('layerFive')->contentFour !!}
 			</div>
 		</div>
 	</div>
 </div>
 
+
+<div class="tr-wrap">
+	<div class="row">
+		<div class="col-lg-4 col-md-4 tr-phase">
+			<div class="tr-phase-one" style="height: 250px;">
+				<div class="tr-phase-title">
+					{!! app('Home')->getLayer('layerFive')->titleContentOne !!}
+				</div>
+				<div class="tr-phase-content">
+					{!! app('Home')->getLayer('layerFive')->contentOne !!}
+				</div>
+			</div>
+			<div class="tr-phase-two" style="height: 200px;">
+				<div class="tr-phase-title">
+					{!! app('Home')->getLayer('layerFive')->titleContentTwo !!}
+				</div>
+				<div class="tr-phase-content">
+					{!! app('Home')->getLayer('layerFive')->contentTwo !!}
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4">
+			<img style="min-height: 300px" class="img-responsive tr-img" src="{{ app('Home')->getUrlImage(app('Home')->getLayer('layerFive')->avatar) }}" alt="">
+		</div>
+		<div class="col-lg-4 col-md-4 tr-phase">
+			<div class="tr-phase-three" style="height: 250px;">
+				<div class="tr-phase-title">
+					{!! app('Home')->getLayer('layerFive')->titleContentThree !!}
+				</div>
+				<div class="tr-phase-content">
+					{!! app('Home')->getLayer('layerFive')->contentThree !!}
+				</div>
+			</div>
+			<div class="tr-phase-four" style="height: 200px;">
+				<div class="tr-phase-title">
+					{!! app('Home')->getLayer('layerFive')->titleContentFour !!}
+				</div>
+				<div class="tr-phase-content">
+					{!! app('Home')->getLayer('layerFive')->contentFour !!}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@endif
 <div class="clearfix"></div>

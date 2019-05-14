@@ -9,10 +9,11 @@
 
 
 @section('content')
-<div class="row">
+<div class="">
 	@includeif('frontend.home.unknownThing')
 	@includeif('frontend.home.uses')
 	@includeif('frontend.home.treatment')
+	@includeif('frontend.home.reputation')
 	@includeif('frontend.home.share')
 	@includeif('frontend.home.contact')
 
